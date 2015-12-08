@@ -10,3 +10,24 @@ Tokenize
 [![Latest Stable Version](https://poser.pugx.org/xp-framework/tokenize/version.png)](https://packagist.org/packages/xp-framework/tokenize)
 
 Tokenizing text
+
+```php
+use text\StringTokenizer;
+use text\StreamTokenizer;
+
+// Supports strings and streams
+$tokens= new StringTokenizer('He asked: Can you parse this?', ' .?!,;:', true);
+$tokens= new StringTokenizer($file->in(), ' .?!,;:', true);
+
+// Can iterate using foreach...
+foreach ($tokens as $token) {
+  Console::writeLine($token);
+}
+
+/// ...or with an iterator API
+while ($tokens->hasMoreTokens()) {
+  Console::writeLine($tokens->nextToken());
+}
+
+// Returns: ["He", " ", "asked", ":", " ", "Can", " ", "you", " ", "parse", " ", "this", "?"]
+```
