@@ -14,10 +14,11 @@ Tokenizing text
 ```php
 use text\StringTokenizer;
 use text\StreamTokenizer;
+use io\File;
 
 // Supports strings and streams
 $tokens= new StringTokenizer('He asked: Can you parse this?', ' .?!,;:', true);
-$tokens= new StringTokenizer($file->in(), ' .?!,;:', true);
+$tokens= new StreamTokenizer((new File('parse-me.txt'))->in(), ' .?!,;:', true);
 
 // Can iterate using foreach...
 foreach ($tokens as $token) {
