@@ -33,43 +33,38 @@ abstract class Tokenizer implements \IteratorAggregate {
    * @return  php.Iterator
    */
   public function getIterator() {
-    if (!$this->iterator) $this->iterator= newinstance('Iterator', [$this], '{
-      private $i, $t, $r;
-      public function __construct($r) { $this->r= $r; }
-      public function current() { return $this->r->nextToken(); }
-      public function key() { return $this->i; }
-      public function next() { $this->i++; }
-      public function rewind() { $this->r->reset(); }
-      public function valid() { return $this->r->hasMoreTokens(); }
-    }');
-    return $this->iterator;
+    while ($this->hasMoreTokens()) {
+      yield $this->nextToken();
+    }
   }
 
   /**
    * Push back a string
    *
-   * @param   string str
+   * @param  string $str
+   * @return void
    */
   public abstract function pushBack($str);
   
   /**
    * Reset this tokenizer
    *
+   * @return void
    */
   public abstract function reset();
   
   /**
    * Tests if there are more tokens available
    *
-   * @return  bool more tokens
+   * @return bool
    */
   public abstract function hasMoreTokens();
   
   /**
    * Returns the next token from this tokenizer's string
    *
-   * @param   bool delimiters default NULL
-   * @return  string next token
+   * @param  bool $delimiters default NULL
+   * @return string
    */
   public abstract function nextToken($delimiters= null);
 }
