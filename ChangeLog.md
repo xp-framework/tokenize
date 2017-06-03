@@ -3,6 +3,10 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+## 8.0.0 / 2017-06-03
+
+* Added forward compatibility with XP 9.0.0 - @thekid
+
 ## 7.1.0 / 2016-08-28
 
 * Added forward compatibility with XP 8.0.0 - @thekid
