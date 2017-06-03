@@ -7,21 +7,17 @@
  * @see    xp://text.StreamTokenizer
  * @see    php://strtok
  */
-abstract class Tokenizer extends \lang\Object implements \IteratorAggregate {
-  public 
-    $delimiters   = '',
-    $returnDelims = false;
-  
-  protected
-    $iterator     = null,
-    $source       = null;
+abstract class Tokenizer implements \IteratorAggregate {
+  public $delimiters;
+  public $returnDelims;
+  protected $source;
   
   /**
    * Constructor
    *
-   * @param   var source
-   * @param   string delimiters default ' '
-   * @param   bool returnDelims default FALSE
+   * @param  var $source
+   * @param  string $delimiters default ' '
+   * @param  bool $returnDelims default FALSE
    */
   public function __construct($source, $delimiters= ' ', $returnDelims= false) {
     $this->delimiters= $delimiters;
