@@ -3,7 +3,7 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
-## 8.1.0 / 2018-08-10
+## 8.1.0 / 2019-08-10
 
 * Made compatible with PHP 7.4 - refrain using `{}` for string offsets
   (@thekid)
