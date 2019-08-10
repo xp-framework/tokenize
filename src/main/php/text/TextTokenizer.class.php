@@ -1,7 +1,7 @@
 <?php namespace text;
  
-use io\streams\Reader;
 use io\IOException;
+use io\streams\Reader;
 use lang\IllegalStateException;
  
 /**
@@ -82,7 +82,7 @@ class TextTokenizer extends Tokenizer {
       if (!$this->returnDelims || $offset > 0) $this->_stack[]= substr($this->_buf, 0, $offset);
       $l= strlen($this->_buf);
       if ($this->returnDelims && $offset < $l) {
-        $this->_stack[]= $this->_buf{$offset};
+        $this->_stack[]= $this->_buf[$offset];
       }
       $offset++;
       $this->_buf= $offset < $l ? substr($this->_buf, $offset) : false;

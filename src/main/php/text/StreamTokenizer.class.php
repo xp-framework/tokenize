@@ -1,5 +1,9 @@
 <?php namespace text;
- 
+
+use io\streams\Seekable;
+use lang\IllegalStateException;
+use util\Objects;
+
 /**
  * A stream tokenizer is a tokenizer that works on streams.
  * 
@@ -28,12 +32,10 @@ class StreamTokenizer extends Tokenizer {
     $this->_stack= [];
     
     if ($this->_src) {
-      if ($this->_src instanceof \io\streams\Seekable) {
+      if ($this->_src instanceof Seekable) {
         $this->_src->seek(0, SEEK_SET);
       } else {
-        throw new \lang\IllegalStateException(
-          'Cannot reset, Source '.\xp::stringOf($this->_src).' is not seekable'
-        );
+        throw new IllegalStateException('Cannot reset, Source '.Objects::stringOf($this->_src).' is not seekable');
       }
     }
     $this->_src= $this->source;
@@ -79,7 +81,7 @@ class StreamTokenizer extends Tokenizer {
       if (!$this->returnDelims || $offset > 0) $this->_stack[]= substr($this->_buf, 0, $offset);
       $l= strlen($this->_buf);
       if ($this->returnDelims && $offset < $l) {
-        $this->_stack[]= $this->_buf{$offset};
+        $this->_stack[]= $this->_buf[$offset];
       }
       $offset++;
       $this->_buf= $offset < $l ? substr($this->_buf, $offset) : false;
