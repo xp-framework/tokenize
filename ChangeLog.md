@@ -3,6 +3,10 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+## 8.1.1 / 2019-11-30
+
+* Added compatibility with XP 10, see xp-framework/rfc#333 - @thekid
+
 ## 8.1.0 / 2019-08-10
 
 * Made compatible with PHP 7.4 - refrain using `{}` for string offsets
