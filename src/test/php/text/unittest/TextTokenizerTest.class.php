@@ -1,7 +1,6 @@
 <?php namespace text\unittest;
 
-use io\streams\TextReader;
-use io\streams\MemoryInputStream;
+use io\streams\{MemoryInputStream, TextReader};
 use text\TextTokenizer;
 
 class TextTokenizerTest extends AbstractTokenizerTest {

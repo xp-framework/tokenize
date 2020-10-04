@@ -1,5 +1,7 @@
 <?php namespace text\unittest;
 
+use unittest\{Ignore, Test, TestCase};
+
 /**
  * Abstract base class for different tokenizer tests
  *
@@ -7,7 +9,7 @@
  * @see   xp://net.xp_framework.unittest.text.StringTokenizerTest
  * @see   xp://net.xp_framework.unittest.text.StreamTokenizerTest
  */
-abstract class AbstractTokenizerTest extends \unittest\TestCase {
+abstract class AbstractTokenizerTest extends TestCase {
 
   /**
    * Retrieve a tokenizer instance
@@ -44,7 +46,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     return $tokens;
   }
 
-  #[@test]
+  #[Test]
   public function testSimpleString() {
     $t= $this->tokenizerInstance("Hello World!\nThis is an example", " \n");
     $this->assertEquals('Hello', $t->nextToken());
@@ -56,7 +58,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens());
   }
 
-  #[@test]
+  #[Test]
   public function testSimpleStringWithDelims() {
     $t= $this->tokenizerInstance("Hello World!\nThis is an example", " \n", true);
     $this->assertEquals('Hello', $t->nextToken());
@@ -73,7 +75,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens());
   }
   
-  #[@test]
+  #[Test]
   public function repetetiveDelimiters() {
     $t= $this->tokenizerInstance("Hello \nWorld!", " \n");
     $this->assertEquals('Hello', $t->nextToken());
@@ -82,7 +84,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens());
   }
 
-  #[@test]
+  #[Test]
   public function repetetiveDelimitersWithDelims() {
     $t= $this->tokenizerInstance("Hello \nWorld!", " \n", true);
     $this->assertEquals('Hello', $t->nextToken());
@@ -92,7 +94,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens());
   }
   
-  #[@test]
+  #[Test]
   public function forIteration() {
     $r= [];
     for ($t= $this->tokenizerInstance('A B C', ' '); $t->hasMoreTokens(); ) {
@@ -101,7 +103,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals(range('A', 'C'), $r);
   }
 
-  #[@test]
+  #[Test]
   public function whileIteration() {
     $r= [];
     $t= $this->tokenizerInstance('A B C', ' ');
@@ -111,7 +113,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals(range('A', 'C'), $r);
   }
 
-  #[@test]
+  #[Test]
   public function foreachIteration() {
     $r= [];
     foreach ($this->tokenizerInstance('A B C', ' ') as $token) {
@@ -120,7 +122,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals(range('A', 'C'), $r);
   }
 
-  #[@test]
+  #[Test]
   public function reset() {
     $t= $this->tokenizerInstance('A B C', ' ');
     $this->assertTrue($t->hasMoreTokens());
@@ -130,7 +132,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals('A', $t->nextToken());
   }
 
-  #[@test]
+  #[Test]
   public function pushBackTokens() {
     $t= $this->tokenizerInstance('1,2,5', ',');
     $this->assertEquals('1', $t->nextToken());
@@ -141,7 +143,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals('5', $t->nextToken());
   }
 
-  #[@test]
+  #[Test]
   public function pushBackOrder() {
     $t= $this->tokenizerInstance('1,2,5', ',');
     $this->assertEquals('1', $t->nextToken());
@@ -153,7 +155,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals('5', $t->nextToken());
   }
 
-  #[@test]
+  #[Test]
   public function pushBackDelimiterAtEnd() {
     $t= $this->tokenizerInstance("One\nTwo", "\n");
     $this->assertEquals('One', $t->nextToken());
@@ -162,7 +164,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertEquals('Two', $t->nextToken());
   }
 
-  #[@test]
+  #[Test]
   public function pushBackDelimiter() {
     $this->assertEquals(
       ['// This is a one-line comment', "\n", 'a', '=', ' ', 'b', ' ', '/', ' ', 'c', ';'],
@@ -170,7 +172,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     );
   }
 
-  #[@test]
+  #[Test]
   public function pushBackRegex() {
     $this->assertEquals(
       ['var', ' ', 'pattern', ' ', '=', ' ', '/', '0?([0-9]+)\.0?([0-9]+)(\.0?([0-9]+))?', '/', ';'],
@@ -178,7 +180,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     );
   }
 
-  #[@test]
+  #[Test]
   public function pushBackAfterHavingReadUntilEnd() {
     $t= $this->tokenizerInstance('1,2,', ',');
     $this->assertEquals('1', $t->nextToken());
@@ -191,7 +193,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens(), 'Should be at end again');
   }
 
-  #[@test]
+  #[Test]
   public function pushBackWithDelimitersAfterHavingReadUntilEnd() {
     $t= $this->tokenizerInstance('1,2,', ',', true);
     $this->assertEquals('1', $t->nextToken());
@@ -207,7 +209,7 @@ abstract class AbstractTokenizerTest extends \unittest\TestCase {
     $this->assertFalse($t->hasMoreTokens(), 'Should be at end again');
   }
 
-  #[@test, @ignore('Remove ignore annotation to test performance')]
+  #[Test, Ignore('Remove ignore annotation to test performance')]
   public function performance() {
   
     // Create a string with 10000 tokens
