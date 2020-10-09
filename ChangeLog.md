@@ -3,6 +3,10 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+## 9.0.1 / 2020-10-09
+
+* Fixed reading past end to consistently return `NULL` - @thekid
+
 ## 9.0.0 / 2019-11-30
 
 * Dropped support for PHP 5.6, see xp-framework/rfc#334 - @thekid

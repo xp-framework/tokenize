@@ -224,4 +224,13 @@ abstract class AbstractTokenizerTest extends TestCase {
       $token= $t->nextToken();
     }
   }
+
+  #[Test]
+  public function reading_past_end_returns_null() {
+    $t= $this->tokenizerInstance('Test', "\n", false);
+    while ($t->hasMoreTokens()) {
+      $t->nextToken();
+    }
+    $this->assertEquals([null, null], [$t->nextToken(), $t->nextToken()]);
+  }
 }

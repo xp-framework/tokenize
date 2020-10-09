@@ -67,12 +67,13 @@ class TextTokenizer extends Tokenizer {
    */
   public function nextToken($delimiters= null) {
     if (empty($this->_stack)) {
-    
+      if (false === $this->_buf) return null;
+
       // Read until we have either find a delimiter or until we have 
       // consumed the entire content.
       do {
         $offset= strcspn($this->_buf, $delimiters ? $delimiters : $this->delimiters);
-        if ($offset < strlen($this->_buf)- 1) break;
+        if ($offset < strlen($this->_buf) - 1) break;
         if (null === ($buf= $this->source->read())) {
           break;
         }
