@@ -1,5 +1,5 @@
 <?php namespace text;
- 
+
 use io\IOException;
 use io\streams\Reader;
 use lang\IllegalStateException;

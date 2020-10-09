@@ -1,6 +1,7 @@
 <?php namespace text\unittest;
 
 use text\StringTokenizer;
+use unittest\Assert;
 
 class StringTokenizerTest extends AbstractTokenizerTest {
 

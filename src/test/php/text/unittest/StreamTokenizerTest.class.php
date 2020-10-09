@@ -2,6 +2,7 @@
 
 use io\streams\MemoryInputStream;
 use text\StreamTokenizer;
+use unittest\Assert;
 
 class StreamTokenizerTest extends AbstractTokenizerTest {
 

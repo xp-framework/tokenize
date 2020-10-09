@@ -1,5 +1,4 @@
 <?php namespace text;
- 
 /**
  * A string tokenizer allows you to break a string into tokens,
  * these being delimited by any character in the delimiter.

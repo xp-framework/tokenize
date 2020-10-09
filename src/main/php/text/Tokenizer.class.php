@@ -1,5 +1,4 @@
 <?php namespace text;
- 
 /**
  * A tokenizer splits input strings into tokens.
  * 
