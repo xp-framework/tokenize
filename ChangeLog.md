@@ -3,6 +3,12 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+## 9.0.2 / 2021-08-16
+
+* Fixed PHP 8.1 compatibility by declaring `getIterator()` with correct
+  return type. See https://wiki.php.net/rfc/internal_method_return_types
+  (@thekid)
+
 ## 9.0.1 / 2020-10-09
 
 * Fixed reading past end to consistently return `NULL` - @thekid

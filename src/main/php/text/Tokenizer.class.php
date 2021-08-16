@@ -1,4 +1,7 @@
 <?php namespace text;
+
+use Traversable, IteratorAggregate;
+
 /**
  * A tokenizer splits input strings into tokens.
  * 
@@ -6,7 +9,7 @@
  * @see    xp://text.StreamTokenizer
  * @see    php://strtok
  */
-abstract class Tokenizer implements \IteratorAggregate {
+abstract class Tokenizer implements IteratorAggregate {
   public $delimiters;
   public $returnDelims;
   protected $source;
@@ -25,13 +28,8 @@ abstract class Tokenizer implements \IteratorAggregate {
     $this->reset();
   }
   
-  /**
-   * Returns an iterator for use in foreach()
-   *
-   * @see     php://language.oop5.iterations
-   * @return  php.Iterator
-   */
-  public function getIterator() {
+  /** Returns an iterator for use in foreach() */
+  public function getIterator(): Traversable {
     while ($this->hasMoreTokens()) {
       yield $this->nextToken();
     }
