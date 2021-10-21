@@ -5,7 +5,7 @@ Tokenize log
 
 ## 9.0.3 / 2021-10-21
 
-* Maded library compatible with XP 11 - @thekid
+* Made library compatible with XP 11 - @thekid
 
 ## 9.0.2 / 2021-08-16
 
