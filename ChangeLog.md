@@ -3,6 +3,8 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+* Merged PR #2: Migrate to new testing library - @thekid
+
 ## 9.0.3 / 2021-10-21
 
 * Made library compatible with XP 11 - @thekid
