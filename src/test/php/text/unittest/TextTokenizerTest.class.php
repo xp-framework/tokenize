@@ -2,7 +2,7 @@
 
 use io\streams\{MemoryInputStream, TextReader};
 use text\TextTokenizer;
-use unittest\Assert;
+use test\Assert;
 
 class TextTokenizerTest extends AbstractTokenizerTest {
 

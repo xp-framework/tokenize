@@ -1,7 +1,7 @@
 <?php namespace text\unittest;
 
-use unittest\Assert;
-use unittest\{Ignore, Test, TestCase};
+use test\Assert;
+use test\{Ignore, Test, TestCase};
 
 /**
  * Abstract base class for different tokenizer tests
