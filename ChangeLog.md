@@ -3,6 +3,7 @@ Tokenize log
 
 ## ?.?.? / ????-??-??
 
+* Added PHP 8.4 to the test matrix - @thekid
 * Merged PR #2: Migrate to new testing library - @thekid
 
 ## 9.0.3 / 2021-10-21
