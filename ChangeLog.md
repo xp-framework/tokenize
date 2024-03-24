@@ -6,7 +6,6 @@ Tokenize log
 ## 9.1.0 / 2024-03-24
 
 * Made compatible with XP 12 - @thekid
-
 * Added PHP 8.4 to the test matrix - @thekid
 * Merged PR #2: Migrate to new testing library - @thekid
 
