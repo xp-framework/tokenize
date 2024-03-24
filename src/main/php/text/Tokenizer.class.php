@@ -5,9 +5,8 @@ use Traversable, IteratorAggregate;
 /**
  * A tokenizer splits input strings into tokens.
  * 
- * @see    xp://text.StringTokenizer
- * @see    xp://text.StreamTokenizer
- * @see    php://strtok
+ * @see   text.StringTokenizer
+ * @see   text.StreamTokenizer
  */
 abstract class Tokenizer implements IteratorAggregate {
   public $delimiters;
