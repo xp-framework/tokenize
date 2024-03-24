@@ -60,7 +60,7 @@ abstract class Tokenizer implements IteratorAggregate {
   /**
    * Returns the next token from this tokenizer's string
    *
-   * @param  bool $delimiters default NULL
+   * @param  ?string $delimiters
    * @return string
    */
   public abstract function nextToken($delimiters= null);
