@@ -69,14 +69,14 @@ class StringTokenizer extends Tokenizer {
   /**
    * Returns the next token from this tokenizer's string
    *
-   * @param   bool delimiters default NULL
+   * @param   ?string $delimiters
    * @return  string next token
    */
   public function nextToken($delimiters= null) {
     if (empty($this->_stack)) {
       if ($this->_ofs >= $this->_len) return null;
 
-      $offset= strcspn($this->source, $delimiters ? $delimiters : $this->delimiters, $this->_ofs);
+      $offset= strcspn($this->source, $delimiters ?? $this->delimiters, $this->_ofs);
       if (!$this->returnDelims || $offset > 0) $this->_stack[]= substr($this->source, $this->_ofs, $offset);
       if ($this->returnDelims && $this->_ofs + $offset < $this->_len) {
         $this->_stack[]= $this->source[$this->_ofs + $offset];
