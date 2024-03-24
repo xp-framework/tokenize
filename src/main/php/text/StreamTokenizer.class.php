@@ -15,8 +15,8 @@ use util\Objects;
  * }
  * ```
  *
- * @test     xp://net.xp_framework.unittest.text.StreamTokenizerTest
- * @see      xp://text.Tokenizer
+ * @test  text.unittest.StreamTokenizerTest
+ * @see   text.Tokenizer
  */
 class StreamTokenizer extends Tokenizer {
   protected

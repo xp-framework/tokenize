@@ -1,4 +1,5 @@
 <?php namespace text;
+
 /**
  * A string tokenizer allows you to break a string into tokens,
  * these being delimited by any character in the delimiter.
@@ -21,8 +22,8 @@
  * - example
  * ```
  *
- * @test  xp://net.xp_framework.unittest.text.StringTokenizerTest
- * @see   xp://text.Tokenizer
+ * @test  text.unittest.StringTokenizerTest
+ * @see   text.Tokenizer
  */
 class StringTokenizer extends Tokenizer {
   protected

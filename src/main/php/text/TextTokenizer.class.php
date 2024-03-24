@@ -15,8 +15,8 @@ use lang\IllegalStateException;
  * }
  * ```
  *
- * @test  xp://net.xp_framework.unittest.text.TextTokenizerTest
- * @see   xp://text.Tokenizer
+ * @test  text.unittest.TextTokenizerTest
+ * @see   text.Tokenizer
  */
 class TextTokenizer extends Tokenizer {
   protected
