@@ -23,7 +23,7 @@ foreach ($tokens as $token) {
   Console::writeLine($token);
 }
 
-/// ...or with an iterator API
+// ...or with an iterator API
 while ($tokens->hasMoreTokens()) {
   Console::writeLine($tokens->nextToken());
 }
