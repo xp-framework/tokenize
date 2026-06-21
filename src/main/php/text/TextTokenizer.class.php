@@ -1,6 +1,6 @@
 <?php namespace text;
 
-use io\IOException;
+use io\OperationFailed;
 use io\streams\Reader;
 use lang\IllegalStateException;
  
@@ -31,7 +31,7 @@ class TextTokenizer extends Tokenizer {
     if ('' !== $this->_buf) {
       try {
         $this->source->reset();
-      } catch (IOException $e) {
+      } catch (OperationFailed $e) {
         throw new IllegalStateException('Cannot reset', $e);
       }
     } 
